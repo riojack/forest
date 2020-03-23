@@ -2,33 +2,36 @@
 A simple forest simulator.
 
 ### Rules
-Initially, the forest starts with a random distribution of plants and animals at various levels of age.
-
-The **forest ecosystem** has properties: 
-    - `day`
-    - `season`
-    
-The forest ecosystem starts at day 0 and the season is "Spring".  A year is 40 days long.
+The forest is laid out as a grid.  Plants and animals are distributed randomly throughout the grid.
 
 **Animals** have properties: 
     - `food source` - This can be `herbivore`, `carnivore`, or `omnivore`.
-    - `age`
-    - `hunger` - Defaults to 0.  (Possible values: 0 (not hungry), 1 (hungry), 2 (ravenous))
-    - `life` - Defaults to 10. (Min: 0; Max: 10)
+    - `hunger` - Can be `hungry` or `not hungry`.
+    - `life` - Tracks the health of the animal.
 
-All animals start with an age of 0, a random food preference, a hunger of 0, and a life of 10.
+All animals start with a random food preference, a hunger of `not hungry`, and a full life.
 
 **Plants** have properties: 
-    - `age`
-    - `growth speed`
-    - `life`
-
+    - `life` - Tracks the health of the plant.
 
 At every iteration of the simulation:
 
-1. The forest ecosystem:
-    1. If the day is 39, set day to zero; else increment the day by 1.
-    2. Between days 0-9, it is Spring.  Between days 10-19, it is Summer. Between days 20-29, it is Fall.  Between days 30-39, it is Winter.
-2. Animals:
-    1. If the age is 79, set life to 0; else increment age by 1.
-    2. If hunger 
+1. For herbivorous animals:
+    1. When hungry and next to a plant, the animal will eat from the plant, reducing the plant's life by the amount needed to restore full life to the animal.
+    2. Does not eat animals.
+2. For carnivorous animals:
+    1. When hungry and next to another animal, the animal will eat the other animal, reducing the other animal's life by the amount needed to restore full life to the animal.
+    2. Does not eat plants.
+3. For omnivorous animals, herbivorous and carnivorous rules apply.
+4. For all animals:
+    0. The animal will move one grid position in any of the 8 directions around it (N, S, E, W, NE, NW, SE, or SW).
+    1. Life is reduced by one if it does not eat.  If no life remains, the animal is considered dead.
+    2. The animal is hungry if its life is not full.
+    3. The animal will eat only if it is hungry and next to food.
+5. For plants:
+    0. Life is unchanged if it is full.
+    1. Life is reduced by one if it is less than half.
+    2. Life is increased by one if is half or more.
+
+Other requirements:
+    - Periodically, the forest must be culled of dead plants and animals.
