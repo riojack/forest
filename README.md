@@ -1,7 +1,7 @@
 # Forest
 A simple forest simulator.
 
-### Rules
+## Rules
 The forest is laid out as a grid.  Plants and animals are distributed randomly throughout the grid.
 
 **Animals** have properties: 
@@ -24,14 +24,14 @@ At every iteration of the simulation:
     2. Does not eat plants.
 3. For omnivorous animals, herbivorous and carnivorous rules apply.
 4. For all animals:
-    0. The animal will move one grid position in any of the 8 directions around it (N, S, E, W, NE, NW, SE, or SW).
-    1. Life is reduced by one if it does not eat.  If no life remains, the animal is considered dead.
-    2. The animal is hungry if its life is not full.
-    3. The animal will eat only if it is hungry and next to food.
+    1. The animal will move one grid position in any of the 8 directions around it (N, S, E, W, NE, NW, SE, or SW).
+    2. Life is reduced by one if it does not eat.  If no life remains, the animal is considered dead.
+    3. The animal is hungry if its life is not full.
+    4. The animal will eat only if it is hungry and next to food.
 5. For plants:
-    0. Life is unchanged if it is full.
-    1. Life is reduced by one if it is less than half.
-    2. Life is increased by one if is half or more.
+    1. Life is unchanged if it is full.
+    2. Life is reduced by one if it is less than half.
+    3. Life is increased by one if is half or more.
 
 Other requirements:
-    - Periodically, the forest must be culled of dead plants and animals.
+- Periodically, the forest must be culled of dead plants and animals.
