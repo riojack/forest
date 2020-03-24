@@ -1,9 +1,0 @@
-{
-  "name": "forest",
-  "version": "1.0.0",
-  "description": "Simple forest simulation.",
-  "main": "index.js",
-  "author": "riojack",
-  "license": "MIT",
-  "private": true
-}
