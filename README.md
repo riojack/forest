@@ -5,14 +5,14 @@ A simple forest simulator.
 The forest is laid out as a grid.  Plants and animals are distributed randomly throughout the grid.
 
 **Animals** have properties: 
-    - `food source` - This can be `herbivore`, `carnivore`, or `omnivore`.
-    - `hunger` - Can be `hungry` or `not hungry`.
-    - `life` - Tracks the health of the animal.
+- `food source` - This can be `herbivore`, `carnivore`, or `omnivore`.
+- `hunger` - Can be `hungry` or `not hungry`.
+- `life` - Tracks the health of the animal.
 
 All animals start with a random food preference, a hunger of `not hungry`, and a full life.
 
 **Plants** have properties: 
-    - `life` - Tracks the health of the plant.
+- `life` - Tracks the health of the plant.
 
 At every iteration of the simulation:
 
